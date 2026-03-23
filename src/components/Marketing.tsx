@@ -106,7 +106,7 @@ export function LandingPage() {
 
   const primaryCTA = useMemo(() => {
     // If already logged in, go straight to welcome. Otherwise, login first.
-    return isLoggedIn() ? "/welcome" : "/login"
+    return isLoggedIn() ? "/welcome" : "/welcome"
   }, [])
 
   const goCTA = () => {
@@ -196,7 +196,7 @@ export function LandingPage() {
 export function Pricing() {
   const nav = useNavigate()
   const loc = useLocation()
-  const goCTA = () => nav(isLoggedIn() ? "/welcome" : "/login", { state: { from: loc.pathname } })
+  const goCTA = () => nav(isLoggedIn() ? "/welcome" : "/welcome", { state: { from: loc.pathname } })
 
   return (
     <div className="min-h-screen bg-slate-50">

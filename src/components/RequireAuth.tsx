@@ -7,7 +7,7 @@ export default function RequireAuth({ children }: { children: JSX.Element }) {
 
   if (!isLoggedIn()) {
     const from = loc.pathname + (loc.search ?? "") + (loc.hash ?? "")
-    return <Navigate to="/login" replace state={{ from }} />
+    return <Navigate to="/welcome" replace state={{ from }} />
   }
 
   return children

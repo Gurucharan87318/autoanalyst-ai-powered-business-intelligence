@@ -33,7 +33,7 @@ export default function Pricing() {
   const afterLogin = "/welcome"
 
   if (!isLoggedIn()) {
-    nav("/login", { state: { from: afterLogin, plan } })
+    nav("/welcome", { state: { from: afterLogin, plan } })
     return
   }
 
@@ -65,7 +65,7 @@ export default function Pricing() {
               <Button variant="outline" onClick={() => nav("/")}>
                 ← Home
               </Button>
-              <Button onClick={() => nav("/login", { state: { from: "/welcome" } })}>
+              <Button onClick={() => nav("/welcome", { state: { from: "/welcome" } })}>
                 Login →
               </Button>
             </div>
