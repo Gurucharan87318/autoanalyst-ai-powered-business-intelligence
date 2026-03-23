@@ -196,7 +196,7 @@ export function LandingPage() {
 export function Pricing() {
   const nav = useNavigate()
   const loc = useLocation()
-  const goCTA = () => nav(isLoggedIn() ? "/app/welcome" : "/app/welcome", { state: { from: loc.pathname } })
+  const goCTA = () => nav(isLoggedIn() ? "/welcome" : "/welcome", { state: { from: loc.pathname } })
 
   return (
     <div className="min-h-screen bg-slate-50">

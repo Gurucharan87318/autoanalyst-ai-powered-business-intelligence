@@ -317,16 +317,16 @@ export default function LandingPage() {
 
   const gateTo = (pathIfLoggedIn: string) => {
     if (!isLoggedIn()) {
-      nav("/app/welcome", { state: { from: pathIfLoggedIn } })
+      nav("/welcome", { state: { from: pathIfLoggedIn } })
       return
     }
     nav(pathIfLoggedIn)
   }
 
   const choosePlan = (plan: "free" | "pro" | "custom") => {
-    const afterLogin = "/app/welcome"
+    const afterLogin = "/welcome"
     if (!isLoggedIn()) {
-      nav("/app/welcome", { state: { from: afterLogin, plan } })
+      nav("/welcome", { state: { from: afterLogin, plan } })
       return
     }
     nav(afterLogin)
@@ -389,10 +389,10 @@ return (
               </button>
 
               <div className="ml-2 flex items-center gap-3 border-l border-slate-200 pl-6">
-                <Button variant="ghost" className="font-semibold text-slate-600 hover:text-slate-900" onClick={() => gateTo("/app/welcome")}>
+                <Button variant="ghost" className="font-semibold text-slate-600 hover:text-slate-900" onClick={() => gateTo("/welcome")}>
                   Log in
                 </Button>
-                <Button className="bg-slate-900 text-white font-semibold shadow-sm hover:bg-slate-800 hover:shadow-md transition-all" onClick={() => gateTo("/app/welcome")}>
+                <Button className="bg-slate-900 text-white font-semibold shadow-sm hover:bg-slate-800 hover:shadow-md transition-all" onClick={() => gateTo("/welcome")}>
                   Sign up
                 </Button>
               </div>
@@ -430,7 +430,7 @@ return (
           <Button
             size="lg"
             className="h-14 rounded-full px-8 text-base font-semibold shadow-lg shadow-slate-900/10 transition-transform hover:-translate-y-0.5"
-            onClick={() => gateTo("/app/welcome")}
+            onClick={() => gateTo("/welcome")}
           >
             Explore
           </Button>

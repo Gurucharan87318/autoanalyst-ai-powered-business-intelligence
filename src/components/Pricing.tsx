@@ -65,7 +65,7 @@ export default function Pricing() {
               <Button variant="outline" onClick={() => nav("/")}>
                 ← Home
               </Button>
-              <Button onClick={() => nav("/app/welcome", { state: { from: "/app/welcome" } })}>
+              <Button onClick={() => nav("/welcome", { state: { from: "/welcome" } })}>
                 Login →
               </Button>
             </div>
