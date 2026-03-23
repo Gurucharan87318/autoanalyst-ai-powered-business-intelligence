@@ -317,16 +317,16 @@ export default function LandingPage() {
 
   const gateTo = (pathIfLoggedIn: string) => {
     if (!isLoggedIn()) {
-      nav("/welcome", { state: { from: pathIfLoggedIn } })
+      nav("/app/welcome", { state: { from: pathIfLoggedIn } })
       return
     }
     nav(pathIfLoggedIn)
   }
 
   const choosePlan = (plan: "free" | "pro" | "custom") => {
-    const afterLogin = "/welcome"
+    const afterLogin = "/app/welcome"
     if (!isLoggedIn()) {
-      nav("/welcome", { state: { from: afterLogin, plan } })
+      nav("/app/welcome", { state: { from: afterLogin, plan } })
       return
     }
     nav(afterLogin)
@@ -389,10 +389,10 @@ return (
               </button>
 
               <div className="ml-2 flex items-center gap-3 border-l border-slate-200 pl-6">
-                <Button variant="ghost" className="font-semibold text-slate-600 hover:text-slate-900" onClick={() => gateTo("/welcome")}>
+                <Button variant="ghost" className="font-semibold text-slate-600 hover:text-slate-900" onClick={() => gateTo("/app/welcome")}>
                   Log in
                 </Button>
-                <Button className="bg-slate-900 text-white font-semibold shadow-sm hover:bg-slate-800 hover:shadow-md transition-all" onClick={() => gateTo("/welcome")}>
+                <Button className="bg-slate-900 text-white font-semibold shadow-sm hover:bg-slate-800 hover:shadow-md transition-all" onClick={() => gateTo("/app/welcome")}>
                   Sign up
                 </Button>
               </div>
@@ -401,60 +401,62 @@ return (
         </Container>
       </nav>
 
-      {/* HERO */}
-      <div className="relative overflow-hidden bg-gradient-to-b from-white to-slate-50/50 pt-20 pb-16 md:pt-28 md:pb-24">
-        <Container>
-          <motion.div initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, ease: "easeOut" }} className="relative">
-            
-            <div className="grid gap-12 lg:grid-cols-2 lg:gap-8 items-center">
-              
-              {/* LEFT COLUMN - TEXT & CTA */}
-              <div className="flex flex-col items-start text-left">
-                <div className="flex flex-wrap gap-3 mb-8">
-                  <SoftTag>✨ AI-powered</SoftTag>
-                  <SoftTag>🔒 Offline-first</SoftTag>
-                </div>
+     {/* HERO */}
+<div className="relative overflow-hidden bg-gradient-to-b from-white to-slate-50/50 pt-20 pb-16 md:pt-28 md:pb-24">
+  <Container>
+    <motion.div
+      initial={{ opacity: 0, y: 24 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5, ease: "easeOut" }}
+      className="relative"
+    >
+      <div className="mx-auto flex max-w-4xl flex-col items-center text-center">
+        <div className="mb-8 flex flex-wrap justify-center gap-3">
+          <SoftTag>✨ AI-powered</SoftTag>
+          <SoftTag>🔒 Offline-first</SoftTag>
+        </div>
 
-                <h1 className="text-5xl font-extrabold tracking-tight text-slate-900 md:text-6xl lg:text-7xl leading-[1.1]">
-                  AutoAnalyst <br />
-                  AI-assisted <br />
-                  <span className="text-slate-400 font-medium">Business Intelligence</span>
-                </h1>
+        <h1 className="text-5xl font-extrabold tracking-tight text-slate-900 md:text-6xl lg:text-7xl leading-[1.1]">
+          AutoAnalyst
+          AI-assisted <br />
+          <span className="font-medium text-slate-400">Business Intelligence</span>
+        </h1>
 
-                <p className="mt-6 max-w-lg text-lg leading-relaxed text-slate-600 font-medium">
-                 A Desktop app that turns spreadsheets into dashboards, KPIs, and insights — offline and AI‑driven.
-                </p>
-                <div className="mt-10 flex flex-wrap gap-4">
-                  <Button size="lg" className="h-14 rounded-full px-8 text-base font-semibold shadow-lg shadow-slate-900/10 hover:-translate-y-0.5 transition-transform" onClick={() => gateTo("/welcome")}>
-                    Explore
-                  </Button>
-                  <Button size="lg" variant="outline" className="h-14 rounded-full px-8 text-base font-semibold border-slate-200 bg-white/50 hover:bg-white hover:text-slate-900 transition-all" onClick={() => document.getElementById("demo")?.scrollIntoView({ behavior: "smooth" })}>
-                    Learn More
-                  </Button>
-                </div>
+        <p className="mt-6 max-w-2xl text-lg leading-relaxed text-slate-600 font-medium">
+          A Desktop app that turns spreadsheets into dashboards, KPIs, and insights — offline and AI-driven.
+        </p>
 
-                <div className="mt-12 flex flex-wrap gap-3 opacity-80">
-                  {["CSV/XLSX", "Schema profiling", "PNG insight card", "GST readiness"].map((x) => (
-                    <Badge key={x} variant="secondary" className="bg-white/80 text-slate-600 border border-slate-200/60 font-medium px-3 py-1">
-                      {x}
-                    </Badge>
-                  ))}
-                </div>
-              </div>
+        <div className="mt-10 flex flex-wrap justify-center gap-4">
+          <Button
+            size="lg"
+            className="h-14 rounded-full px-8 text-base font-semibold shadow-lg shadow-slate-900/10 transition-transform hover:-translate-y-0.5"
+            onClick={() => gateTo("/app/welcome")}
+          >
+            Explore
+          </Button>
 
-              {/* RIGHT COLUMN - IMAGE */}
-              <div className="relative mx-auto w-full max-w-lg lg:max-w-none flex justify-center lg:justify-end">
-                {/* REPLACE THIS IMG TAG WITH YOUR ACTUAL IMAGE 
-                  Keep the classes to ensure it scales correctly within the grid.
-                */}
-                <img 
-                  src="src/assets/logo.png" 
-                  alt="AutoAnalyst Architecture Overview" 
-                  className="w-full h-auto object-contain drop-shadow-2xl" 
-                />
-              </div>
+          <Button
+            size="lg"
+            variant="outline"
+            className="h-14 rounded-full border-slate-200 bg-white/50 px-8 text-base font-semibold transition-all hover:bg-white hover:text-slate-900"
+            onClick={() => document.getElementById("demo")?.scrollIntoView({ behavior: "smooth" })}
+          >
+            Learn More
+          </Button>
+        </div>
 
-            </div>
+        <div className="mt-12 flex flex-wrap justify-center gap-3 opacity-80">
+          {["CSV/XLSX", "Schema profiling", "PNG insight card", "GST readiness"].map((x) => (
+            <Badge
+              key={x}
+              variant="secondary"
+              className="border border-slate-200/60 bg-white/80 px-3 py-1 font-medium text-slate-600"
+            >
+              {x}
+            </Badge>
+          ))}
+        </div>   
+        </div>
 
           </motion.div>
         </Container>
