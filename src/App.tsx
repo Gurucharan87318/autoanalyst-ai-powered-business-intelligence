@@ -3,7 +3,6 @@ import { Routes, Route, Navigate } from "react-router-dom";
 
 import LandingPage from "./components/LandingPage";
 import Pricing from "./components/Pricing";
-import Login from "./components/Login";
 import RequireAuth from "./components/RequireAuth";
 import Welcome from "./components/Welcome";
 import { Toaster } from "@/components/ui/sonner";
@@ -27,15 +26,14 @@ export default function App() {
         {/* Public routes */}
         <Route path="/" element={<LandingPage />} />
         <Route path="/pricing" element={<Pricing />} />
-        <Route path="/login" element={<Login />} />
 
         {/* Auth routes */}
         <Route
           path="/welcome"
           element={
-            <RequireAuth>
+   
               <Welcome />
-            </RequireAuth>
+
           }
         />
 
@@ -45,61 +43,61 @@ export default function App() {
         <Route
           path="/app/upload"
           element={
-            <RequireAuth>
+     
               <Suspense fallback={appFallback}>
                 <FileUploaderView />
               </Suspense>
-            </RequireAuth>
+ 
           }
         />
         <Route
           path="/app/schema"
           element={
-            <RequireAuth>
+
               <Suspense fallback={appFallback}>
                 <SchemaVerificationView />
               </Suspense>
-            </RequireAuth>
+
           }
         />
         <Route
           path="/app/transform"
           element={
-            <RequireAuth>
+ 
               <Suspense fallback={appFallback}>
                 <SqlSandbox />
               </Suspense>
-            </RequireAuth>
+
           }
         />
         <Route
           path="/app/visuals"
           element={
-            <RequireAuth>
+        
               <Suspense fallback={appFallback}>
                 <VisualDashboard />
               </Suspense>
-            </RequireAuth>
+     
           }
         />
         <Route
           path="/app/health"
           element={
-            <RequireAuth>
+
               <Suspense fallback={appFallback}>
                 <RetailHealth />
               </Suspense>
-            </RequireAuth>
+  
           }
         />
         <Route
           path="/app/final"
           element={
-            <RequireAuth>
+   
               <Suspense fallback={appFallback}>
                 <FinalDashboard />
               </Suspense>
-            </RequireAuth>
+    
           }
         />
 
