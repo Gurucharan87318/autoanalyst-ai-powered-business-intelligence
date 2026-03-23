@@ -425,7 +425,7 @@ return (
                  A Desktop app that turns spreadsheets into dashboards, KPIs, and insights — offline and AI‑driven.
                 </p>
                 <div className="mt-10 flex flex-wrap gap-4">
-                  <Button size="lg" className="h-14 rounded-full px-8 text-base font-semibold shadow-lg shadow-slate-900/10 hover:-translate-y-0.5 transition-transform" onClick={() => gateTo("/Welcome")}>
+                  <Button size="lg" className="h-14 rounded-full px-8 text-base font-semibold shadow-lg shadow-slate-900/10 hover:-translate-y-0.5 transition-transform" onClick={() => gateTo("/welcome")}>
                     Explore
                   </Button>
                   <Button size="lg" variant="outline" className="h-14 rounded-full px-8 text-base font-semibold border-slate-200 bg-white/50 hover:bg-white hover:text-slate-900 transition-all" onClick={() => document.getElementById("demo")?.scrollIntoView({ behavior: "smooth" })}>
